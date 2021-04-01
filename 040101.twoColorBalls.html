@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+		#app{
+			text-align: center;
+			color: red;
+		}
+		h2{
+			color: aqua;
+		}
+		</style>
+	</head>
+	<body>
+		<!-- 第一个Vue程序 -->
+		<!-- // <div id="app">
+		// 	{{message}}
+		// </div>
+		// <script>
+		// 	var app=new Vue({
+		// 		el:'#app',
+		// 		data:{
+		// 			message:'黑马程序员'
+		// 		}
+		// 	})
+		//</script> -->
+		<!-- 第二个vue程序 -->
+		<!-- // <div id="app">
+		// 	{{message}}
+		// 	<h1>{{school.name}} {{school.phone}}</h1>
+		// 	<ul>
+		// 		<li>{{dz[0]}}</li>
+		// 		<li>{{dz[1]}}</li>
+		// 	</ul>
+		// </div>
+		// <script>
+		// 	var app = new Vue({
+		// 		el: '#app',
+		// 		data: {
+		// 			message: '你好,小黑!',
+		// 			school: {
+		// 				name: '黑马程序',
+						
+		// 				phone: 15678249386
+		// 			},
+		// 			dz: ['北京校区', '上海校区']
+		// 		}
+		// 	})
+		
+		<!-- </script> -->
+		<div id="app">
+			
+			<button type="button" @click="cp">生成彩票号码</button>
+			<h3 v-if="show==1">红球:{{a1}},{{a2}},{{a3}},{{a4}},{{a5}},{{a6}}</h3>
+			<h2 v-if="show==1">篮球:{{a7}}</h2>
+
+		</div>
+		<script>
+			var v = new Vue({
+				el: '#app',
+				data: {
+					show: '',
+					a1: '',
+					a2: '',
+					a3: '',
+					a4: '',
+					a5: '',
+					a6: '',
+					a7: '',
+				},
+				methods: {
+					cp: function() {
+						this.show = 1;
+						this.a1 = parseInt(Math.random() * 36 + 1);
+						this.a2 = parseInt(Math.random() * 36 + 1);
+						this.a3 = parseInt(Math.random() * 36 + 1);
+						this.a4 = parseInt(Math.random() * 36 + 1);
+						this.a5 = parseInt(Math.random() * 36 + 1);
+						this.a6 = parseInt(Math.random() * 36 + 1);
+						this.a7 = parseInt(Math.random() * 15 + 1);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

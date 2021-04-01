@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>奇偶数判断</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			button{
+				text-align: center;
+				size: 6.25rem;
+				color: red;
+			}
+			#app{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<button type="button" @click="cp">判断奇偶数</button>
+			<h1 v-if="show=1">{{jshu}}奇数,{{oshu}}偶数</h1>
+		</div>
+		<script>
+			var v = new Vue({
+				el: '#app',
+				data: {
+					show: '',
+					jshu:'',
+					oshu:''
+				},
+				methods: {
+					cp: function() {
+						show = 1;
+						var n = Math.floor(Math.random() * 100);
+						alert('n的值是:' + n);
+						if (n & 1 == 1) {
+							this.jshu=n;
+						} else if (n & 1 == 0) {
+							this.oshu=n;
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

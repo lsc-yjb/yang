@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<style>
+			#app{
+				text-align: center;
+				color:red;
+				font-size: 26px;
+			}
+			input{
+				color: #00FFFF;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+	<body style="background-color: #FFE4C4;">
+		<div id="app">
+			<h2>{{messgae1}}</h2>
+			<input type="button" value="浪起来" @click="lang" />
+			<input type="button" value="低调" @click="stop" />
+			<h4>{{messgae}}</h4>
+		</div>
+		<script>
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					messgae: '猥琐发育,别浪--!',
+					intervalId: null,
+					messgae1:'这是我的第一个vue项目--跑马灯项目'
+				},
+				methods: {
+					lang: function() {
+						// console.log(this.messgae);
+						if (this.intervalId != null) return;
+						var _this = this
+						this.intervalId = setInterval(function() {
+							var start = _this.messgae.substring(0, 1)
+							var end = _this.messgae.substring(1)
+							_this.messgae = end + start
+						}, 400)
+					},
+					stop: function() {
+						// var _this = this
+						clearInterval(this.intervalId);
+						 this.intervalId = null;
+					}
+				}
+
+			})
+		</script>
+	</body>
+</html>

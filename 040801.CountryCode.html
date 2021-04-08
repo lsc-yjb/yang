@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+		<style>
+			#app{
+				text-align: center;
+				}
+		</style>
+	</head>
+	<body style="background-color: aqua;">
+		<div id="app">
+			<input type="text" v-model="show" />
+		      <div v-for="gj in gjs">
+				<div v-if="show==gj.hao">
+					国家名字:{{gj.name}}<br />
+					首都名字:{{gj.sd}}<br />
+					国家代码编号:{{gj.hao}}
+				</div>
+			</div>
+			
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+                data:{
+					show:'',
+					gjs:[
+						{name:"中国",sd:"北京",hao:"86"},
+						{name:"美国",sd:"纽约",hao:"8"},
+						{name:"英国",sd:"伦敦",hao:"50"},
+						{name:"法国",sd:"华盛顿",hao:"32"},
+						{name:"日本",sd:"东京",hao:"56"}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>

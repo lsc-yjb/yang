@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="myInput" @keydown.enter="myInput1()" />
+		</div>
+		<script>
+			let v = new Vue({
+				el: '#app',
+				data: {
+					randomNum: 0,
+					myInput: 0,
+					result: ""
+				},
+				methods: {
+					beforeMount() {
+						//创建一个100以内的随机的整数
+						var num = Math.floor(Math.random() * 100);
+						console.log(num);
+						this.randomNum = num;
+					},
+					myInput1() {
+						if (this.myInput == this.randomNum) {
+							alert("恭喜：猜对了")
+						} else if (this.myInput > this.randomNum) {
+							alert("啊哦！猜大了")
+						} else {
+							alert( "啊哦！猜小了")
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
